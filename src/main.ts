@@ -41,18 +41,18 @@ async function run() {
           core.setFailed('No valid release file to sign.');
         }
 
-        core.debug('Release signed! Setting outputs.: ' + signedReleaseFile);
+        core.debug('Release signed! Setting outputs.');
         signedReleaseFiles.push(signedReleaseFile);
       }
       core.exportVariable('SIGNED_RELEASE_FILE', signedReleaseFiles.join(", "));
       core.setOutput('signedReleaseFile', signedReleaseFiles.join(", "));
-      console.log('Releases signed!:', signedReleaseFiles.join(", "));
+      console.log('Releases signed!');
     } else {
       core.error("No release files (.apk or .aab) could be found. Abort.");
       core.setFailed('No release files (.apk or .aab) could be found.');
     }
   } catch (error) {
-    core.setFailed(error);
+    core.setFailed(error.message);
   }
 }
 
