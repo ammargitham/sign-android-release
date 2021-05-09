@@ -41,17 +41,17 @@ jobs:
           keyStorePassword: android
           keyPassword: android
 
-  release:
-    needs: test
-    runs-on: ubuntu-latest
-    name: Update action
+  # release:
+  #   needs: test
+  #   runs-on: ubuntu-latest
+  #   name: Update action
 
-    steps:
-      - uses: actions/checkout@v1
-        name: Checkout code
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #       name: Checkout code
 
-      - name: Update v1 Tag
-        uses: hole19/git-tag-action@master
-        env:
-          TAG: v1
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #     - name: Update v1 Tag
+  #       uses: hole19/git-tag-action@master
+  #       env:
+  #         TAG: v1
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
