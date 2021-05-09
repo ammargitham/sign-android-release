@@ -46,7 +46,7 @@ async function run() {
       }
       core.exportVariable('SIGNED_RELEASE_FILE', signedReleaseFiles.join(", "));
       core.setOutput('signedReleaseFile', signedReleaseFiles.join(", "));
-      console.log('Releases signed!: ', signedReleaseFiles.join(", "));
+      console.log('Releases signed!:', signedReleaseFiles.join(", "));
     } else {
       core.error("No release files (.apk or .aab) could be found. Abort.");
       core.setFailed('No release files (.apk or .aab) could be found.');
