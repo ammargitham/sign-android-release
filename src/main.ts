@@ -1,8 +1,8 @@
 import * as core from '@actions/core';
-import {signAabFile, signApkFile} from "./signing";
-import path from "path";
 import fs from "fs";
+import path from "path";
 import * as io from "./io-utils";
+import { signAabFile, signApkFile } from "./signing";
 
 async function run() {
   try {
@@ -46,7 +46,7 @@ async function run() {
       }
       core.exportVariable('SIGNED_RELEASE_FILE', signedReleaseFiles.join(", "));
       core.setOutput('signedReleaseFile', signedReleaseFiles.join(", "));
-      console.log('Releases signed!');
+      console.log('Releases signed!', signedReleaseFiles.join(", "));
     } else {
       core.error("No release files (.apk or .aab) could be found. Abort.");
       core.setFailed('No release files (.apk or .aab) could be found.');
